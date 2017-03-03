@@ -67,7 +67,6 @@ if ($answer -eq "yes") {
     Try {
         Rename-Item -literalpath $($item.FullName) -NewName $newFilename -ErrorAction Stop
         Write-Host "Renamed file, copying to Movies share..."
-        #Move-Item "$($item.directory)\$newFilename" -Destination "\\supersynology\movies\" -ErrorAction Stop
         
         Start-BitsTransfer -Source "$($item.directory)\$newFilename" -Destination $Destination -Description "Copying $newFilename" -DisplayName "Copying..."
 
